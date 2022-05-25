@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
-import routes from 'api/apiRoutes';
 import { getAllProducts, getProduct } from 'services/productsService';
 import { ProductInterface } from 'interfaces/productInterface';
 
@@ -24,7 +23,7 @@ const images = [
 const ProductInfoPage = ({ product }: Props) => {
     const [translate, setTranslate] = useState(false);
     const [imageIndex, setImageIndex] = useState(0);
-    const [currentImage, setCurrentImage] = useState(product.image);
+    const [currentImage, setCurrentImage] = useState(product?.image);
 
     const translateImagesHandler = () => {
         if (translate) {
@@ -38,6 +37,10 @@ const ProductInfoPage = ({ product }: Props) => {
         setCurrentImage(image);
         setImageIndex(index);
     };
+
+    if (!product) {
+        return null;
+    }
 
     return (
         <div className="flex items-center justify-center">
@@ -140,6 +143,10 @@ const ProductInfoPage = ({ product }: Props) => {
 
 export async function getStaticPaths() {
     const data = await getAllProducts();
+
+    if (!data || !data.data || !data.data.products) {
+        return { paths: [], fallback: false };
+    }
 
     const paths = data.data.products.map((product: ProductInterface) => ({
         params: { productId: product._id },
