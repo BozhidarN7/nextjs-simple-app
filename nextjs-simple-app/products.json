@@ -1,0 +1,44 @@
+[
+    {
+        "brand": "Lenovo",
+        "model": "Legion",
+        "price": 1440,
+        "rating": 9,
+        "image": "https://www.laptop.bg/system/images/132581/original/Legion_Y520.jpg"
+    },
+    {
+        "brand": "Lenovo",
+        "model": "Thinkpad",
+        "price": 900,
+        "rating": 6,
+        "image": "https://laptop.bg/system/images/297998/original/lenovo_thinkpad_e14_gen_2_20TA002JBM_3_16GB_512GB.jpg"
+    },
+    {
+        "brand": "Dell",
+        "model": "Inspiron",
+        "price": 2100,
+        "rating": 0,
+        "image": "https://laptop.bg/system/images/275613/original/Inspiron_3501.jpg"
+    },
+    {
+        "brand": "Acer",
+        "model": "Nitro 5",
+        "price": 3231,
+        "rating": 10,
+        "image": "https://laptop.bg/system/images/246835/original/Nitro_5_AN515_55.png"
+    },
+    {
+        "brand": "HP",
+        "model": "Pavilion 15",
+        "price": 2321,
+        "rating": 5,
+        "image": "https://laptop.bg/system/images/235712/normal/Pavilion_15_cs30.png"
+    },
+    {
+        "brand": "Asus",
+        "model": "Rog",
+        "price": 1900,
+        "rating": 8,
+        "image": "https://laptop.bg/system/images/293134/original/asus_rog_strix_g15_g513ichn004.jpg"
+    }
+]
