@@ -36,6 +36,14 @@ const Home: NextPage<Props> = ({ products }: Props) => {
 export async function getStaticProps() {
     const data = await getAllProducts();
 
+    if (!data || !data.data || !data.data.products) {
+        return {
+            props: {
+                products: [],
+            },
+        };
+    }
+
     return {
         props: {
             products: data.data.products,
