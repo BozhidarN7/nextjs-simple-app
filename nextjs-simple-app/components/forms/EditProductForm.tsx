@@ -43,7 +43,6 @@ const EditProductForm = ({ closeModalHandler, productId }: Props) => {
                 productId
             )
         );
-
         dispatch(productUpdated(data.data.product));
         closeModalHandler(e);
     };
@@ -68,7 +67,10 @@ const EditProductForm = ({ closeModalHandler, productId }: Props) => {
 
     if (!product) {
         return (
-            <div className="flex h-[25rem] items-center justify-center">
+            <div
+                data-testid="spinner-wrapper"
+                className="flex h-[25rem] items-center justify-center"
+            >
                 <Spinner />
             </div>
         );

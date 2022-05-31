@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
 import CardsContainer from 'components/CardsContainer';
 import LandingSection from 'components/LandingSection';
+import usePageScroll from 'hooks/usePageScroll';
 import { ProductInterface } from 'interfaces/productInterface';
 import { useAppDispatch } from 'app/hooks';
 import { productsLoaded } from 'features/productsSlice';
@@ -15,10 +16,15 @@ type Props = {
 
 const Home: NextPage<Props> = ({ products }: Props) => {
     const dispatch = useAppDispatch();
+    const { pageScroll } = usePageScroll();
 
     useEffect(() => {
         dispatch(productsLoaded(products));
     }, []);
+
+    useEffect(() => {
+        window.scrollTo({ top: pageScroll, left: 0, behavior: 'smooth' });
+    }, [pageScroll]);
 
     return (
         <>

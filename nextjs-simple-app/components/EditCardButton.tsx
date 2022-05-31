@@ -27,6 +27,7 @@ const EditCardButton = ({ productId }: Props) => {
             <div
                 className="z-10 col-start-2 col-end-3 row-start-1 row-end-2 mt-2 mr-2 h-8 w-8 duration-300 hover:rounded-full hover:bg-gray-200 active:bg-gray-300"
                 onClick={openModalHandler}
+                data-testid="edit-card-button"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Zoom from 'react-medium-image-zoom';
@@ -21,6 +22,7 @@ const images = [
 ];
 
 const ProductInfoPage = ({ product }: Props) => {
+    const router = useRouter();
     const [translate, setTranslate] = useState(false);
     const [imageIndex, setImageIndex] = useState(0);
     const [currentImage, setCurrentImage] = useState(product?.image);
@@ -46,6 +48,25 @@ const ProductInfoPage = ({ product }: Props) => {
         <div className="flex items-center justify-center">
             <div className="mt-4 w-9/12">
                 <div className="w-4/12">
+                    <div
+                        className="mb-4 h-8 w-8 cursor-pointer rounded-full hover:bg-gray-300"
+                        onClick={() => router.back()}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-8 w-8"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                            />
+                        </svg>
+                    </div>
                     <h1 className="text-3xl font-bold">{`${product.brand} ${product.model}`}</h1>
 
                     <Zoom>

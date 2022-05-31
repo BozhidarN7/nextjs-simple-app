@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { ProductInterface } from 'interfaces/productInterface';
 
-interface ProductsSliceInterface {
+export interface ProductsSliceInterface {
     products: ProductInterface[];
 }
 
